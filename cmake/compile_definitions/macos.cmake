@@ -7,9 +7,20 @@ set(MACOS_LINK_DIRECTORIES
         /opt/local/lib
         /usr/local/lib)
 
+set(MACOS_INCLUDE_DIRECTORIES
+        /opt/homebrew/include
+        /opt/local/include
+        /usr/local/include)
+
 foreach(dir ${MACOS_LINK_DIRECTORIES})
     if(EXISTS ${dir})
         link_directories(${dir})
+    endif()
+endforeach()
+
+foreach(dir ${MACOS_INCLUDE_DIRECTORIES})
+    if(EXISTS ${dir})
+        include_directories(SYSTEM ${dir})
     endif()
 endforeach()
 
